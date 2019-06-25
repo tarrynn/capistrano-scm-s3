@@ -1,5 +1,8 @@
 require "capistrano/scm/s3/version"
 require "capistrano/scm/plugin"
+require 'sshkit'
+require 'sshkit/dsl'
+include SSHKit::DSL
 
 module Capistrano
   module Scm
