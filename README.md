@@ -1,0 +1,1 @@
+# Capistrano::Scm::S3
