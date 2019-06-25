@@ -15,9 +15,9 @@ module Capistrano
                 on release_roles :all do
                   execute :mkdir, "-p", release_path
                   execute "mkdir /tmp/bootup"
-                  execute "cd /tmp/bootup && aws s3 cp s3://bergamotte-deployments/codebuild/#{fetch :stage}/#{fetch :branch}_source.tar.gz #{fetch :branch}_source.tar.gz"
+                  execute "cd /tmp/bootup && aws s3 cp #{fetch :scm_s3_bucket}/#{fetch :stage}/#{fetch :branch}_source.tar.gz #{fetch :branch}_source.tar.gz"
                   execute "cd /tmp/bootup && tar xf #{fetch :branch}_source.tar.gz"
-                  execute "mv /tmp/bootup/bergamotte/* #{release_path}"
+                  execute "mv /tmp/bootup/#{fetch :application}/* #{release_path}"
                   execute "rm -rf /tmp/bootup"
                 end
               end
