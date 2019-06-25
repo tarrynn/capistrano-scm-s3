@@ -1,8 +1,5 @@
 require "capistrano/scm/s3/version"
 require "capistrano/scm/plugin"
-require 'sshkit'
-require 'sshkit/dsl'
-include SSHKit::DSL
 
 module Capistrano
   module Scm
@@ -26,7 +23,7 @@ module Capistrano
               end
 
               task :set_current_revision do
-                set :current_revision, capture("cd #{release_path} && git rev-list --max-count=1 #{fetch :branch}")
+                set :current_revision, "bootup"
               end
             end
           end
