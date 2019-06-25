@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'capistrano/scm/none/version'
+require 'capistrano/scm/s3/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "capistrano-scm-s3"
@@ -24,5 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.17.1"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
-  spec.add_development_dependency "capistrano", "~> 3.4.1"
+  spec.add_development_dependency "capistrano", "~> 3.7"
 end
