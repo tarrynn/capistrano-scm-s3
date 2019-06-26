@@ -18,6 +18,9 @@ module Capistrano
                   execute "cd /tmp/bootup && aws s3 cp #{fetch :scm_s3_bucket}/#{fetch :stage}/#{fetch :branch}_source.tar.gz #{fetch :branch}_source.tar.gz"
                   execute "cd /tmp/bootup && tar xf #{fetch :branch}_source.tar.gz"
                   execute "mv /tmp/bootup/#{fetch :application}/* #{release_path}"
+
+                  # by default mv doesn't move hidden files, so we're explicitly moving them as well
+                  execute "mv /tmp/bootup/#{fetch :application}/.[!.]* #{release_path}"
                   execute "rm -rf /tmp/bootup"
                 end
               end
