@@ -1,6 +1,8 @@
 # Capistrano::Scm::S3
 
-Grabs compressed source in tarball from S3
+Grabs compressed source in tarball from S3.
+
+Assumes your instance has an associated IAM role (or credentials on the host) to be able to copy down from S3.
 
 ```ruby
 group :development do
