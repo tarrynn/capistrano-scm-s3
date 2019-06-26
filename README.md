@@ -5,7 +5,7 @@ Grabs compressed source in tarball from S3
 ```ruby
 group :development do
   gem "capistrano", "~> 3.7", require: false
-  gem 'capistrano-scm-s3', '~> 0.1.6', git: 'https://github.com/tarrynn/capistrano-scm-s3.git'
+  gem 'capistrano-scm-s3', '~> 0.1.7', git: 'https://github.com/tarrynn/capistrano-scm-s3.git'
 end
 ```
 
