@@ -1,8 +1,5 @@
 require "capistrano/scm/s3/version"
 require "capistrano/scm/plugin"
-require 'sshkit'
-require 'sshkit/dsl'
-include SSHKit::DSL
 
 module Capistrano
   module Scm
@@ -29,7 +26,10 @@ module Capistrano
               end
 
               task :set_current_revision do
-                set(:current_revision, capture("cat #{release_path}/.git/HEAD"))
+                on release_roles :all do
+                  revision = capture(:cat, "#{release_path}/.git/HEAD")
+                  set(:current_revision, revision)
+                end
               end
             end
           end
