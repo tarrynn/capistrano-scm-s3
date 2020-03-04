@@ -26,7 +26,7 @@ module Capistrano
               end
 
               task :set_current_revision do
-                set :current_revision, "bootup"
+                set(:current_revision, capture("cat #{release_path}/.git/HEAD")
               end
             end
           end
