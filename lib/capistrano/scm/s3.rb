@@ -26,9 +26,7 @@ module Capistrano
               end
 
               task :set_current_revision do
-                on release_roles :all do
-                  set(:current_revision, execute("cat #{release_path}/.git/HEAD"))
-                end
+                set(:current_revision, capture("cat #{release_path}/.git/HEAD"))
               end
             end
           end
